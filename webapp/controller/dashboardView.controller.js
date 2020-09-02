@@ -52,6 +52,7 @@ sap.ui.define([
 			this.getOwnerComponent().getModel("DOB").setProperty("/birthDay", birthDay);
 
 		},
+		//searchinf on employee in total number of employees card in dashboard
 		onSearchEmployeeCard: function (oEvent) {
 			var search = oEvent.getParameter("newValue");
 			var oFilterName = new sap.ui.model.Filter(
