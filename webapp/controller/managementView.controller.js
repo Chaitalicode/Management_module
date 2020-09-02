@@ -90,10 +90,11 @@ sap.ui.define([
 		},
 
 		onUploadFile: function () {
-			debugger;
+			// debugger;
 			if (this.validateFileInput()) {
 				this.File = this.getView().byId("RequestFileUploader").oFileUpload.files[0];
 				this.filePath = URL.createObjectURL(this.File);
+				MessageToast.show("Uploaded successfully now you can send the file");
 			}
 		},
 		onRequestFileSend: function () {

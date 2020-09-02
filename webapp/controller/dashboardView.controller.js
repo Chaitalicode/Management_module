@@ -26,30 +26,40 @@ sap.ui.define([
 			var birthDay = [];
 			var Relieving = [];
 			var anualData = [];
+			var events = this.getOwnerComponent().getModel("DOB").getProperty("/events") || [];
 			var temp = new sap.ui.model.json.JSONModel();
 			this.getOwnerComponent().setModel(temp, "thisMonth");
 			for (var i = 0; i < DOB.length; i++) {
 				var month = DOB[i].date.slice(3, 5);
 				if (month == "08") {
+					// debugger;
+					DOB[i].event = "birthDay";
 					birthDay.push(DOB[i]);
+					events.push(DOB[i]);
 				}
 				// debugger;
 				var year = DOB[i].endDate.slice(6);
 				if (year == "2020") {
+					DOB[i].event = "Relieving";
 					Relieving.push(DOB[i]);
+					events.push(DOB[i]);
 				}
 				var anual = DOB[i].startDate.slice(3, 5);
 				if (anual == "08") {
+					DOB[i].event = "anualData";
 					anualData.push(DOB[i]);
+					events.push(DOB[i]);
 				}
 
 			}
-			// debugger;
+			debugger;
 			this.getOwnerComponent().getModel("DOB").setProperty("/anualData", anualData);
 
 			this.getOwnerComponent().getModel("DOB").setProperty("/Relieving", Relieving);
 
 			this.getOwnerComponent().getModel("DOB").setProperty("/birthDay", birthDay);
+
+			this.getOwnerComponent().getModel("DOB").setProperty("/events", events);
 
 		},
 		//searchinf on employee in total number of employees card in dashboard
@@ -113,7 +123,7 @@ sap.ui.define([
 
 		// navigating to finance application
 		empSalayaNavToFinance: function (oEvent) {
-			debugger;
+			// debugger;
 			var emp = oEvent.getSource().getBindingContext("DOB").getObject();
 			var financeSalaryCalObj = {
 				empId: emp.EmpId,
@@ -151,7 +161,16 @@ sap.ui.define([
 
 			this.getRouter().navTo("worklist");
 		},
-
+		onAddEvents: function () {
+			var relievingEventFragmentId = this.createId("relievingEventFragmentId");
+			if (!this.relievingEventFragment) {
+				this.relievingEventFragment = new sap.ui.xmlfragment(this.getView().getId(relievingEventFragmentId),
+					"MT.SMT_Managment.fragments.addEvents",
+					this);
+				this.getView().addDependent(this.relievingEventFragment);
+			}
+			this.relievingEventFragment.open();
+		},
 		// onClickRelievingButton: function (oEvent) {
 		// 	debugger;
 
@@ -184,14 +203,7 @@ sap.ui.define([
 			// this.getOwnerComponent().getModel("DOB").setProperty("Event", tempNewsCardArray);
 
 			this.getOwnerComponent().getModel("DOB").setProperty("/Event", tempNewsCardArray);
-			var relievingEventFragmentId = this.createId("relievingEventFragmentId");
-			if (!this.relievingEventFragment) {
-				this.relievingEventFragment = new sap.ui.xmlfragment(this.getView().getId(relievingEventFragmentId),
-					"MT.SMT_Managment.fragments.addEvents",
-					this);
-				this.getView().addDependent(this.relievingEventFragment);
-			}
-			this.relievingEventFragment.open();
+
 		},
 		onCloseFragmentAddEmp: function () {
 			// debugger;

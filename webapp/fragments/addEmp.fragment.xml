@@ -5,33 +5,33 @@
 			<l:VerticalLayout class="sapUiContentPadding" width="100%">
 				<l:content>
 					<VBox>
-						<Label text="EmpId:"/>
+						<Label text="Emp Id:"/>
 						<Input id="empAddFId" required="true" width="100%" liveChange="onEmpId" editable="false"/>
-						<Label text="firstName:"/>
+						<Label text="first Name:" required="true"/>
 						<Input id="fNameFId" required="true" width="100%" liveChange="onFname"/>
-						<Label id="lableName" text="LastName:"/>
+						<Label required="true" text="LastName:"/>
 						<Input id="lNameFId" required="true" width="100%" liveChange="onLname"/>
-						<Label text="Department:"/>
+						<Label required="true" text="Department:"/>
 						<Input id="empAdddepFId" required="true" width="100%" liveChange="onDepart"/>
-						<Label text="Position:"/>
+						<Label required="true" text="Position:"/>
 						<Input id="empAddposFId" required="true" width="100%" liveChange="onPos"/>
-						<Label text="Email:"/>
+						<Label required="true" text="Email:"/>
 						<Input id="empAddEmailId" required="true" width="100%" change="onEmail"/>
-						<Label text="Date Of Birth:"/>
+						<Label required="true" text="Date Of Birth:"/>
 						<DatePicker id="empAddDOBId" placeholder="Enter Date ..." navigate="handleChangeDOB" class="sapUiSmallMarginBottom"/>
-						<Label text="Joining date:"/>
+						<Label required="true" text="Joining date:"/>
 						<DatePicker id="empAddStareId" placeholder="Enter Date ..." change="handleChangeStartDate" class="sapUiSmallMarginBottom"/>
-						<Label text="Releaving date:"/>
+						<Label required="true" text="Releaving date:"/>
 						<DatePicker id="empAddEndId" placeholder="Enter Date ..." change="onchangeLeavingDate" editable="true" class="sapUiSmallMarginBottom"/>
-						<Label text="Password:"/>
-						<Input id="empAddPassId" required="true" width="100%" editable="false"/>
-						<Toolbar>
-							<Button text="Add" press="onSave" id="btnVeg"></Button>
-							<Button type="Reject" text="Cancel" id="btnSaveFood" press="onCloseFragmentAddEmp"></Button>
-						</Toolbar>
 					</VBox>
 				</l:content>
 			</l:VerticalLayout>
 		</f:SimpleForm>
+		<beginButton>
+			<Button text="Add" press="onSave" type="Accept"/>
+		</beginButton>
+		<endButton>
+			<Button type="Reject" text="Close" press="onCloseFragmentAddEmp"></Button>
+		</endButton>
 	</Dialog>
 </core:FragmentDefinition>
