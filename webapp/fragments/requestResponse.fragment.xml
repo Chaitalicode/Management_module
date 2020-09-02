@@ -19,14 +19,15 @@
 						</FlexBox>
 						<u:FileUploader id="RequestFileUploader"/>
 						<Button text="{i18n>RequestUplad}" press="onUploadFile" width="100%"/>
-						<Toolbar height="1px"/>
-						<Toolbar design="Info" width="100%">
-							<Button text="Send" width="150%" type="Accept" press="onRequestFileSend"/>
-							<Button text="Close" width="150%" press="onCloseRequestFragment"></Button>
-						</Toolbar>
 					</VBox>
 				</l:content>
 			</l:VerticalLayout>
 		</f:SimpleForm>
+		<beginButton>
+			<Button text="Send" type="Accept" press="onRequestFileSend"/>
+		</beginButton>
+		<endButton>
+			<Button text="Close" type="Reject" press="onCloseRequestFragment"/>
+		</endButton>
 	</Dialog>
 </core:FragmentDefinition>

@@ -175,7 +175,7 @@
 					</f:header>
 					<f:content>
 						<ScrollContainer height="200px" width="100%" vertical="true" focusable="true">
-							<Table id="birthdayCardId" items="{DOB>/birthDay}" width="100%">
+							<Table id="birthdayCardId" items="{DOB>/birthDay}" width="100%" noDataText="No Events">
 								<columns>
 									<Column>
 										<Text text="image"/>
@@ -191,7 +191,7 @@
 									</Column>
 								</columns>
 								<items>
-									<ColumnListItem type="Navigation" press="Birthday">
+									<ColumnListItem >
 										<cells>
 											<!--<Image src="{DOB>image}" width="2em" height="2em"/>-->
 											<Avatar src="{DOB>image}" displaySize="S" showBorder="true"/>
@@ -212,6 +212,11 @@
 					</f:header>
 					<f:content>
 						<ScrollContainer height="200px" width="100%" vertical="true" focusable="true">
+							<Toolbar width="100%">
+								<!--<Button type="Transparent" icon="sap-icon://nav-back" press="onPressLogout" class="floatLeft"/>-->
+								<ToolbarSpacer/>
+								<Button text="Add Event" press="onAddEvents"></Button>
+							</Toolbar>
 							<Table items="{DOB>/Events}" width="100%">
 								<columns>
 									<Column>

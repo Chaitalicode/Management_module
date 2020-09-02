@@ -8,3 +8,30 @@
 .sapFCardHeader .sapFCard .heightOfCards {
     padding: -1rem;
 }
+
+html.sap-desktop .sapMIBar.sapMFooter-CTX {
+    background-color: #354a5f;
+    border-top: 1px solid #d9d9d9;
+}
+
+.sapMDialog.sapMPopup-CTX>header .sapMHeader-CTX,
+.sapMDialog.sapMPopup-CTX>header .sapMSubHeader-CTX {
+    background-color: #354a5f;
+}
+
+.stickyButton {
+    position: sticky;
+    position: -webkit-sticky;
+    left: 32em;
+    z-index: 101;
+}
+
+element.style {
+    width: 50%;
+}
+
+.sapMDialog>header.sapMDialogTitle .sapMTitle {
+    color: white;
+    margin: 0;
+    vertical-align: middle;
+}
