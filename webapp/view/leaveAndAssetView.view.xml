@@ -2,14 +2,7 @@
 	controllerName="MT.SMT_Managment.controller.leaveAndAssetView" xmlns:html="http://www.w3.org/1999/xhtml">
 	<App>
 		<pages>
-			<Page>
-				<headerContent>
-					<Toolbar id="idDetailPage" width="100%">
-						<!--<Button type="Transparent" icon="sap-icon://nav-back" press="onPressLogout" class="floatLeft"/>-->
-						<ToolbarSpacer/>
-						<SearchField liveChange="onSearch" placeholder="Search leave by reasion" width="30%"/>
-					</Toolbar>
-				</headerContent>
+			<Page showHeader="false">
 				<content>
 					<IconTabBar id="idIconTabBarNoIcons" class="sapUiResponsiveContentPadding leftPadding" expanded="true">
 						<items>
@@ -18,6 +11,8 @@
 									<infoToolbar>
 										<OverflowToolbar>
 											<Label text="{i18n>LeaveRequestespageLeaveRequeste}"/>
+											<ToolbarSeparator/>
+											<SearchField liveChange="onSearch" placeholder="Search leave by reasion" width="30%"/>
 										</OverflowToolbar>
 									</infoToolbar>
 									<columns>

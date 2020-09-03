@@ -1,7 +1,7 @@
 <core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout"
 	xmlns:u="sap.ui.unified">
-	<Dialog title="Relieving Employees" id="RelievingEmployeListFragment">
-		<ScrollContainer height="300px" width="30em" vertical="true" focusable="true">
+	<Dialog title="Events">
+		<ScrollContainer height="300px" width="35em" vertical="true" focusable="true">
 			<Table items="{DOB>/events}">
 				<columns>
 					<Column >
@@ -27,11 +27,14 @@
 							<Label text="{DOB>event}"/>
 							<Label text="{DOB>empName}"/>
 							<DatePicker value="{DOB>startDate}" editable="false"/>
-							<Button text="delete" press="onClickdeleteEvent"/>
+							<Button text="Add to event" press="onClickEventsAdd"/>
 						</cells>
 					</ColumnListItem>
 				</items>
 			</Table>
 		</ScrollContainer>
+		<endButton>
+			<Button type="Reject" text="Close" press="onCloseFragmentAddEvents"></Button>
+		</endButton>
 	</Dialog>
 </core:FragmentDefinition>

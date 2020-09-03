@@ -1,6 +1,6 @@
 <core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout"
 	xmlns:u="sap.ui.unified">
-	<Dialog title="RelievingEmployees" showHeader="false" id="dialog">
+	<Dialog title="Approve Asset" showHeader="true" id="dialog">
 		<f:SimpleForm>
 			<l:VerticalLayout class="sapUiContentPadding" width="100%">
 				<l:content>
@@ -33,13 +33,17 @@
 								<!--<Button type="Accept" text="Approve" class="sapUiMediumMarginEnd" press="onClickAssetApprival"/>-->
 							</HBox>
 						</Toolbar>
-						<HBox width="100%" alignContent="Center" alignItems="Center" justifyContent="Center">
-							<Button type="Accept" text="Approve" class="sapUiMediumMarginEnd" press="onAsseteApproval"/>
-							<Button type="Back" width="100%" text="Cancel" press="onCloseFragmentAsseteAction"></Button>
-						</HBox>
+						<!--<HBox width="100%" alignContent="Center" alignItems="Center" justifyContent="Center">-->
+						<!--</HBox>-->
 					</VBox>
 				</l:content>
 			</l:VerticalLayout>
 		</f:SimpleForm>
+		<beginButton>
+			<Button type="Accept" text="Approve" class="sapUiMediumMarginEnd" press="onAsseteApproval"/>
+		</beginButton>
+		<endButton>
+			<Button type="Reject" text="Cancel" press="onCloseFragmentAsseteAction"/>
+		</endButton>
 	</Dialog>
 </core:FragmentDefinition>
