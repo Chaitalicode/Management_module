@@ -104,16 +104,16 @@
 							<Table id="relievingCardId" items="{DOB>/Relieving}" width="100%">
 								<columns>
 									<Column>
-										<Text text="image"/>
+										<Text text="Image"/>
 									</Column>
 									<Column>
+										<Text text="Id" width="4em"/>
+									</Column>
+									<Column >
 										<Text text="Name"/>
 									</Column>
 									<Column width="8em">
-										<Text text="endDate"/>
-									</Column>
-									<Column>
-										<Text text="ATN"/>
+										<Text text="End Date"/>
 									</Column>
 								</columns>
 								<items>
@@ -122,8 +122,8 @@
 											<!--<Image src="{DOB>image}" width="2em" height="2em"/>-->
 											<Avatar src="{DOB>image}" displaySize="S" showBorder="true"/>
 											<Label text="{DOB>EmpId}"/>
+											<Label text="{DOB>empName}"/>
 											<DatePicker value="{DOB>endDate}" editable="false"/>
-											<Button text="Add News" press="onClickRelievingButton"/>
 										</cells>
 									</ColumnListItem>
 								</items>
@@ -141,16 +141,16 @@
 							<Table items="{DOB>/anualData}" width="100%">
 								<columns>
 									<Column>
-										<Text text="image"/>
+										<Text text="Image"/>
 									</Column>
 									<Column>
+										<Text text="Employee Id"/>
+									</Column>
+									<Column >
 										<Text text="Name"/>
 									</Column>
 									<Column width="8em">
 										<Text text="startDate"/>
-									</Column>
-									<Column>
-										<Text text="ATN"/>
 									</Column>
 								</columns>
 								<items>
@@ -159,8 +159,8 @@
 											<!--<Image src="{DOB>image}" width="2em" height="2em"/>-->
 											<Avatar src="{DOB>image}" displaySize="S" showBorder="true"/>
 											<Label text="{DOB>EmpId}"/>
+											<Label text="{DOB>empName}"/>
 											<DatePicker value="{DOB>startDate}" editable="false"/>
-											<Button text="Add to News" press="onClickRelievingButton"/>
 										</cells>
 									</ColumnListItem>
 								</items>
@@ -181,13 +181,13 @@
 										<Text text="image"/>
 									</Column>
 									<Column>
+										<Text text="Employee Id"/>
+									</Column>
+									<Column>
 										<Text text="Name"/>
 									</Column>
 									<Column width="8em">
 										<Text text="DOB"/>
-									</Column>
-									<Column>
-										<Text text="ATN"/>
 									</Column>
 								</columns>
 								<items>
@@ -196,8 +196,8 @@
 											<!--<Image src="{DOB>image}" width="2em" height="2em"/>-->
 											<Avatar src="{DOB>image}" displaySize="S" showBorder="true"/>
 											<Label text="{DOB>EmpId}"/>
+											<Label text="{DOB>empName}"/>
 											<DatePicker value="{DOB>date}" editable="false"/>
-											<Button text="Add to News" press="onClickRelievingButton"/>
 										</cells>
 									</ColumnListItem>
 								</items>
@@ -215,33 +215,34 @@
 							<Toolbar width="100%">
 								<!--<Button type="Transparent" icon="sap-icon://nav-back" press="onPressLogout" class="floatLeft"/>-->
 								<ToolbarSpacer/>
+								<SearchField liveChange="onSearchEventsCard" class="stickyToolbar" placeholder="Search Events by Name" width="80%"/>
 								<Button text="Add Event" press="onAddEvents"></Button>
 							</Toolbar>
-							<Table items="{DOB>/Events}" width="100%">
+							<Table id="eventsTable" items="{DOB>/Events}" width="100%">
 								<columns>
 									<Column>
 										<Text text="EmpId"/>
 									</Column>
 									<Column>
-										<Text text="Name"/>
+										<Text text="Employee Photo"/>
 									</Column>
-									<Column width="8em">
-										<Text text="Date"/>
+									<Column >
+										<Text text="Employee Name"/>
 									</Column>
-									<Column>
+									<Column width="7em">
 										<Text text="Enent Name"/>
 									</Column>
 									<Column>
-										<Text text="Delete Enent"/>
+										<Text text="Delete"/>
 									</Column>
 								</columns>
 								<items>
 									<ColumnListItem type="Navigation" press="Birthday">
 										<cells>
 											<Label text="{DOB>EmpId}"/>
-											<Label text="{DOB>name}"/>
-											<DatePicker value="{DOB>date}" editable="false"/>
-											<Label text="{DOB>eveName}"/>
+											<Avatar src="{DOB>image}" displaySize="S" showBorder="true"/>
+											<Label text="{DOB>empName}"/>
+											<Input value="{DOB>event}" editable="false"/>
 											<Button text="delete" press="onClickdeleteEvent"/>
 										</cells>
 									</ColumnListItem>

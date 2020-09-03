@@ -1,7 +1,8 @@
 sap.ui.define([
 	/*	"sap/ui/core/mvc/Controller",*/
-	"./BaseController"
-], function (Controller) {
+	"./BaseController",
+	"sap/m/MessageToast"
+], function (Controller, MessageToast) {
 	"use strict";
 
 	return Controller.extend("MT.SMT_Managment.controller.dashboardView", {
@@ -162,15 +163,16 @@ sap.ui.define([
 			this.getRouter().navTo("worklist");
 		},
 		onAddEvents: function () {
-			var relievingEventFragmentId = this.createId("relievingEventFragmentId");
-			if (!this.relievingEventFragment) {
-				this.relievingEventFragment = new sap.ui.xmlfragment(this.getView().getId(relievingEventFragmentId),
+			var addEventsFragmentId = this.createId("addEventsFragmentId");
+			if (!this.addEventsFragment) {
+				this.addEventsFragment = new sap.ui.xmlfragment(this.getView().getId(addEventsFragmentId),
 					"MT.SMT_Managment.fragments.addEvents",
 					this);
-				this.getView().addDependent(this.relievingEventFragment);
+				this.getView().addDependent(this.addEventsFragment);
 			}
-			this.relievingEventFragment.open();
+			this.addEventsFragment.open();
 		},
+
 		// onClickRelievingButton: function (oEvent) {
 		// 	debugger;
 
@@ -205,6 +207,7 @@ sap.ui.define([
 			this.getOwnerComponent().getModel("DOB").setProperty("/Event", tempNewsCardArray);
 
 		},
+
 		onCloseFragmentAddEmp: function () {
 			// debugger;
 			var tempNewsCardArray = [];
@@ -242,37 +245,75 @@ sap.ui.define([
 
 			this.AnniversaryEmpFragment.open();
 		},
-		onClickAddEvents: function () {
+		// onClickAddEvents: function () {
 
+		// 	var oModelEvent = this.getOwnerComponent().getModel("DOB").getProperty("/Events") || [];
+		// 	var oModelNotifi = this.getOwnerComponent().getModel("DOB").getProperty("/notificationData") || [];
+		// 	var EmpId = this.getView().byId("addEventsEmpFragementId").getValue();
+		// 	var name = this.getView().byId("addEventsEmpFragementName").getValue();
+		// 	var date = this.getView().byId("addEventsEmpFragementDate").getValue();
+		// 	var eveName = this.getView().byId("addEventsEmpFragementEvent").getValue();
+		// 	var reg_eveName = /[A-Za-z]/;
+
+		// 	if (reg_eveName.test(eveName) == false) {
+		// 		this.getView().byId("addEventsEmpFragementEvent").focus();
+		// 		this.getView().byId("addEventsEmpFragementEvent").setValueState("Error");
+		// 		this.getView().byId("addEventsEmpFragementEvent").setValueStateText("Enter Event name");
+
+		// 		return;
+		// 	}
+		// 	var obj = {
+		// 		EmpId: EmpId,
+		// 		name: name,
+		// 		date: date,
+		// 		eveName: eveName
+		// 	};
+		// 	oModelEvent.push(obj);
+		// 	oModelNotifi.push(obj);
+		// 	this.getOwnerComponent().getModel("DOB").setProperty("/Events", oModelEvent);
+		// 	this.getOwnerComponent().getModel("DOB").setProperty("/notificationData", oModelNotifi);
+		// 	this.getView().byId("addEventsEmpFragementEvent").setValue();
+		// 	this.getView().byId("addEventsEmpFragementEvent").setValueState("None");
+		// 	this.relievingEventFragment.close();
+
+		// },
+		onClickEventsAdd: function (oEvent) {
+			debugger;
 			var oModelEvent = this.getOwnerComponent().getModel("DOB").getProperty("/Events") || [];
-			var oModelNotifi = this.getOwnerComponent().getModel("DOB").getProperty("/notificationData") || [];
-			var EmpId = this.getView().byId("addEventsEmpFragementId").getValue();
-			var name = this.getView().byId("addEventsEmpFragementName").getValue();
-			var date = this.getView().byId("addEventsEmpFragementDate").getValue();
-			var eveName = this.getView().byId("addEventsEmpFragementEvent").getValue();
-			var reg_eveName = /[A-Za-z]/;
 
-			if (reg_eveName.test(eveName) == false) {
-				this.getView().byId("addEventsEmpFragementEvent").focus();
-				this.getView().byId("addEventsEmpFragementEvent").setValueState("Error");
-				this.getView().byId("addEventsEmpFragementEvent").setValueStateText("Enter Event name");
+			var oEvents = this.getOwnerComponent().getModel("DOB").getProperty("/events");
 
-				return;
+			var newData = oEvent.getSource().getBindingContext("DOB").getObject();
+			for (var i = 0; i < oEvents.length; i++) {
+				if (JSON.stringify(oEvents[i]) == JSON.stringify(newData)) {
+					oModelEvent.push(newData);
+					this.getOwnerComponent().getModel("DOB").setProperty("/Events", oModelEvent);
+					oEvents.splice(i, 1);
+					this.getOwnerComponent().getModel("DOB").setProperty("/events", oEvents);
+					MessageToast.show("Event added");
+				}
 			}
-			var obj = {
-				EmpId: EmpId,
-				name: name,
-				date: date,
-				eveName: eveName
-			};
-			oModelEvent.push(obj);
-			oModelNotifi.push(obj);
-			this.getOwnerComponent().getModel("DOB").setProperty("/Events", oModelEvent);
-			this.getOwnerComponent().getModel("DOB").setProperty("/notificationData", oModelNotifi);
-			this.getView().byId("addEventsEmpFragementEvent").setValue();
-			this.getView().byId("addEventsEmpFragementEvent").setValueState("None");
-			this.relievingEventFragment.close();
+		},
+		onCloseFragmentAddEvents: function () {
+			this.addEventsFragment.close();
+		},
+		onSearchEventsCard: function (oEvent) {
+			// debugger;
+			var search = oEvent.getParameter("newValue");
+			var oFilterName = new sap.ui.model.Filter(
+				"event",
+				sap.ui.model.FilterOperator.Contains,
+				search);
 
+			var oFilter = new sap.ui.model.Filter({
+				// filters: [oFilterName, oFilterId],
+				filters: [oFilterName],
+				and: false
+			});
+			var aFilter = [oFilter];
+			// var aFilterId = [oFilterId];
+			var oList = this.getView().byId("eventsTable");
+			oList.getBinding("items").filter(aFilter);
 		},
 		onClickdeleteEvent: function (oEvent) {
 			// debugger;
