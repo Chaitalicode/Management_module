@@ -1,31 +1,31 @@
 {
     "application": {
         "id": "",
-        "title": "MT.SMT_Managment.SMT_Management",
+        "title": "Employee_Management Management module",
         "type": "SAP_UI5_Component",
         "componentUrl": "/",
-        "appUrl": "#SMT_Management-Display",
+        "appUrl": "#Management_module-Display",
         "navigationComponentName": "MT.SMT_Managment",
-        "intentSemanticObject": "SMT_Management",
+        "intentSemanticObject": "Management_module",
         "intentAction": "Display",
-        "html5ApplicationName": "smtmanagement2",
+        "html5ApplicationName": "managementmodule",
         "HCPParentApplicationName": ""
     },
     "assignment": {
         "groups": [
-            "b8423ac0-9afa-4ff1-81a4-e441a091ee3a"
+            "20be031d-99f1-4d4c-89d9-82ba03a3147d"
         ],
         "contentPackages": [
-            "9a56a34a-7581-4665-a67b-a738831c396c"
+            "7545b217-febb-42e0-89eb-32244e82ca63-1583473335707"
         ],
         "categories": []
     },
     "tile": {
         "type": "StaticTile",
-        "title": "Title",
+        "title": "management",
         "subtitle": "Subtitle",
-        "searchKeywords": "Title,Subtitle",
-        "displayIconUrl": "sap-icon://approvals",
+        "searchKeywords": "management,Subtitle",
+        "displayIconUrl": "sap-icon://account",
         "displayInfoText": "",
         "size": "1x1",
         "serviceURL": "",

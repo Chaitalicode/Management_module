@@ -7,12 +7,12 @@
 					<IconTabBar id="idIconTabBarNoIcons" class="sapUiResponsiveContentPadding leftPadding" expanded="true">
 						<items>
 							<IconTabFilter class="leftPadding" text="{i18n>LeavePageLeave}">
-								<Table id="idLeaveTable" inset="false" items="{DOB>/Leave}">
+								<Table id="idLeaveTable" inset="false" items="{DOB>/Leave}" alternateRowColors="true">
 									<infoToolbar>
 										<OverflowToolbar>
 											<Label text="{i18n>LeaveRequestespageLeaveRequeste}"/>
 											<ToolbarSeparator/>
-											<SearchField liveChange="onSearch" placeholder="Search leave by reasion" width="30%"/>
+											<SearchField class="custoSearchBar" liveChange="onSearch" placeholder="Search leave by reasion" width="30%"/>
 										</OverflowToolbar>
 									</infoToolbar>
 									<columns>
@@ -46,7 +46,7 @@
 								</Table>
 							</IconTabFilter>
 							<IconTabFilter class="leftPadding" text="{i18n>LeavePageAsset}">
-								<Table id="idAssetsTable" inset="false" items="{DOB>/Asset}">
+								<Table id="idAssetsTable" inset="false" items="{DOB>/Asset}" alternateRowColors="true">
 									<infoToolbar>
 										<OverflowToolbar>
 											<Label text="{i18n>LeavePageAssetrequestes}"/>
@@ -83,7 +83,7 @@
 								</Table>
 							</IconTabFilter>
 							<IconTabFilter class="leftPadding" text="{i18n>LeavePageTimeSheet}">
-								<Table id="idTimeSheetTable" inset="false" items="{DOB>/TimeSheet}">
+								<Table id="idTimeSheetTable" inset="false" items="{DOB>/TimeSheet}" alternateRowColors="true">
 									<infoToolbar>
 										<OverflowToolbar>
 											<Label text="{i18n>LeavePageTimesheet}"/>

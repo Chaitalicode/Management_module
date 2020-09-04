@@ -33,13 +33,13 @@
 							<Table id="totalEmpTable" items="{DOB>/Employee}" width="100%" sticky="HeaderToolbar,InfoToolbar,ColumnHeaders">
 								<columns>
 									<Column>
-										<Text text="image"/>
+										<Text text="Image"/>
 									</Column>
 									<Column>
-										<Text text="EmpId"/>
+										<Text text="Employee Id"/>
 									</Column>
 									<Column >
-										<Text text="empName"/>
+										<Text text="Employee Name"/>
 									</Column>
 									<Column>
 										<Text text="Department"/>
@@ -68,13 +68,13 @@
 							<Table items="{DOB>/Employee}" width="100%">
 								<columns>
 									<Column>
-										<Text text="image"/>
+										<Text text="Image"/>
 									</Column>
 									<Column>
-										<Text text="EmpId"/>
+										<Text text="Employee Id"/>
 									</Column>
 									<Column >
-										<Text text="empName"/>
+										<Text text="Employee Name"/>
 									</Column>
 									<Column>
 										<Text text="Department"/>
@@ -150,7 +150,7 @@
 										<Text text="Name"/>
 									</Column>
 									<Column width="8em">
-										<Text text="startDate"/>
+										<Text text="Join Date"/>
 									</Column>
 								</columns>
 								<items>
@@ -178,7 +178,7 @@
 							<Table id="birthdayCardId" items="{DOB>/birthDay}" width="100%" noDataText="No Events">
 								<columns>
 									<Column>
-										<Text text="image"/>
+										<Text text="Image"/>
 									</Column>
 									<Column>
 										<Text text="Employee Id"/>
@@ -187,7 +187,7 @@
 										<Text text="Name"/>
 									</Column>
 									<Column width="8em">
-										<Text text="DOB"/>
+										<Text text="Date Of Birth"/>
 									</Column>
 								</columns>
 								<items>
@@ -221,7 +221,7 @@
 							<Table id="eventsTable" items="{DOB>/Events}" width="100%">
 								<columns>
 									<Column>
-										<Text text="EmpId"/>
+										<Text text="Employee Id"/>
 									</Column>
 									<Column>
 										<Text text="Employee Photo"/>
@@ -230,7 +230,7 @@
 										<Text text="Employee Name"/>
 									</Column>
 									<Column width="7em">
-										<Text text="Enent Name"/>
+										<Text text="Event Name"/>
 									</Column>
 									<Column>
 										<Text text="Delete"/>

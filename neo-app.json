@@ -29,6 +29,33 @@
       "description": "SAPUI5 Resources"
     },
     {
+
+		"path": "/themedesigner",
+
+		"target": {
+
+			"type": "application",
+
+			"name": "themedesigner"
+
+		},
+		"description": "Route for theme designer"
+
+	},{
+
+		"path": "/custombelize2",
+
+		"target": {
+
+			"type": "application",
+
+			"name": "custombelize2"
+
+		},
+		"description": "Route for theme designer"
+
+	},
+    {
       "path": "/test-resources",
       "target": {
         "type": "service",

@@ -111,7 +111,7 @@ sap.ui.define([
 				var sQuery = oEvent.getParameter("query");
 
 				if (sQuery && sQuery.length > 0) {
-					aTableSearchState = [new Filter("EmpId", FilterOperator.EQ, sQuery)];
+					aTableSearchState = [new Filter("empName", FilterOperator.EQ, sQuery)];
 				}
 				this._applySearch(aTableSearchState);
 			}

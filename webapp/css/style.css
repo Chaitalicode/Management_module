@@ -35,3 +35,16 @@ element.style {
     margin: 0;
     vertical-align: middle;
 }
+
+
+/*  Leave and Asset view Css */
+
+.custoSearchBar .sapMSFF {
+	background: #5dafaf !important;
+}
+/*  WorkList view Css */
+.customCssForBar {
+	    background: #3b6f9a !important;
+}
+
+	
