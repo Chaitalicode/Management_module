@@ -6,8 +6,9 @@ sap.ui.define([
 	"MT/SMT_Managment/Util/validator",
 	"sap/ui/core/routing/History",
 	"MT/SMT_Managment/Util/callingFragment",
-	"sap/m/MessageToast"
-], function (BaseController, Controller, Fragment, JSONModel, validator, History, callFragment, MessageToast) {
+	"sap/m/MessageToast",
+	"sap/m/MessageBox"
+], function (BaseController, Controller, Fragment, JSONModel, validator, History, callFragment, MessageToast, MessageBox) {
 	"use strict";
 
 	return BaseController.extend("MT.SMT_Managment.controller.managementView", {
@@ -62,10 +63,10 @@ sap.ui.define([
 			}
 			this.RequestFileFragment.open();
 			var notifiObj = oEvent.getSource().getBindingContext("DOB").getObject();
-			this.getView().byId("RequestEmpiId").setText(notifiObj.EmpId);
+			this.getView().byId("RequestEmpiId").setValue(notifiObj.EmpId);
 
-			this.getView().byId("RequestEmpNameId").setText(notifiObj.empName);
-			this.getView().byId("RequestFileId").setText(notifiObj.requestFile);
+			this.getView().byId("RequestEmpNameId").setValue(notifiObj.empName);
+			this.getView().byId("RequestFileId").setValue(notifiObj.requestFile);
 			this.getView().byId("RequestFileUploader").setValue("");
 
 		},
@@ -103,10 +104,10 @@ sap.ui.define([
 			if (this.validateFileInput()) {
 				var oModelRequests = this.getOwnerComponent().getModel("DOB").getProperty("/notificationDatas");
 				var oModelTimeSheet = this.getOwnerComponent().getModel("DOB").getProperty("/TimeSheet") || [];
-				var employeeId = this.getView().byId("RequestEmpiId").getText();
+				var employeeId = this.getView().byId("RequestEmpiId").getValue();
 				var obj = {
 					empId: employeeId,
-					empName: this.getView().byId("RequestEmpNameId").getText(),
+					empName: this.getView().byId("RequestEmpNameId").getValue(),
 					TimesheetName: "TimeSheet",
 					filePath: this.filePath
 				};
@@ -171,13 +172,14 @@ sap.ui.define([
 		},
 
 		onClickAddEvents: function () {
-
+			debugger
 			var oModelEvent = this.getOwnerComponent().getModel("DOB").getProperty("/Events") || [];
 			var oModelNotifi = this.getOwnerComponent().getModel("DOB").getProperty("/notificationData") || [];
 			var EmpId = this.getView().byId("addEventsMangFragementId").getValue();
 			var name = this.getView().byId("addEventsMangFragementName").getValue();
 			var date = this.getView().byId("addEventsMangFragementDate").getValue();
 			var eveName = this.getView().byId("addEventsMangFragementEvent").getValue();
+			var events = this.getOwnerComponent().getModel("DOB").getProperty("/events") || [];
 			if (date == "") {
 				this.getView().byId("addEventsMangFragementDate").focus();
 				this.getView().byId("addEventsMangFragementDate").setValueState("Error");
@@ -192,11 +194,18 @@ sap.ui.define([
 
 				return;
 			}
+			// var obj = {
+			// 	EmpId: EmpId,
+			// 	name: name,
+			// 	date: date,
+			// 	eveName: eveName
+			// };
 			var obj = {
-				EmpId: EmpId,
-				name: name,
+				eventId: "Event" + events.length,
+				event: eveName,
+				name: "Management",
 				date: date,
-				eveName: eveName
+				image: "https://media.glassdoor.com/sqll/1147526/signiwis-technologies-squarelogo-1460532643348.png"
 			};
 			oModelEvent.push(obj);
 			oModelNotifi.push(obj);
@@ -324,10 +333,24 @@ sap.ui.define([
 					date: date
 
 				};
-
+				debugger;
 				var array = this.getView().getModel("DOB").getProperty("/Employee");
-				array.push(obj);
-				this.getView().getModel("DOB").setProperty("/Employee", array);
+				var addEmpFlag = false;
+				for (var j = 0; j < array.length; j++) {
+					if (array[j].Email == Email) {
+						this.getView().byId("empAddEmailId").focus();
+						this.getView().byId("empAddEmailId").setValueState("Error");
+						this.getView().byId("empAddEmailId").setValueStateText("Entered Email allready exist please try diffrent");
+						addEmpFlag = false;
+						return;
+					} else if (j == array.length - 1) {
+						addEmpFlag = true;
+					}
+				}
+				if (addEmpFlag == true) {
+					array.push(obj);
+					this.getView().getModel("DOB").setProperty("/Employee", array);
+				}
 				// debugger;
 				var closeEmpFrag = {
 					"that": this,

@@ -35,7 +35,7 @@
 						</headerTitle>
 						<headerContent>
 							<m:FlexBox wrap="Wrap">
-								<m:Avatar src="sap-icon://picture" backgroundColor="Random" displaySize="L" class="sapUiTinyMarginEnd"/>
+								<m:Avatar src="https://www.signiwis.com/images/margo.png" backgroundColor="Random" displaySize="L" class="sapUiTinyMarginEnd"/>
 								<layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
 									<m:ObjectStatus title="User ID" text="Emp0087"/>
 									<m:ObjectStatus title="Language" text="English"/>
@@ -81,66 +81,84 @@
 											<!--<personal:BlockMailing id="mailing" columnLayout="1"/>-->
 										</blocks>
 									</ObjectPageSubSection>
-									<!--<ObjectPageSubSection title="Payment information">-->
-									<!--	<blocks>-->
-									<!--		<personal:PersonalBlockPart1 columnLayout="1"/>-->
-									<!--	</blocks>-->
-									<!--	<moreBlocks>-->
-									<!--		<personal:PersonalBlockPart2 columnLayout="1"/>-->
-									<!--	</moreBlocks>-->
-									<!--</ObjectPageSubSection>-->
 								</subSections>
 							</ObjectPageSection>
 						</sections>
 						<sections>
 							<ObjectPageSection title="Projects">
 								<subSections>
-									<ObjectPageSubSection title="Projects">
+									<ObjectPageSubSection title="Projects ">
 										<blocks>
 											<m:HBox>
 												<m:VBox>
 													<f:SimpleForm layout="ColumnLayout" width="100%">
 														<!--<m:Label text="Address"/>-->
-														<core:Title text="Sophos, Canada"/>
-														<m:Label text="New Development and Support for Security Products Management in SAP using UI5 "/>
+														<core:Title text="Security Products Management"/>
+														<m:Label text="Project Name"/>
+														<m:Text text="New Development and Support for Security Products Management in SAP using UI5"/>
+														<m:Label text="client"/>
+														<m:Text text="Sophos, Canada"/>
+														<m:Label text="Techonologies Used"/>
 														<m:Text text="SAP UI5, JavaScript, Web IDE tool, UI themedesign"/>
+													</f:SimpleForm>
+												</m:VBox>
+												<m:VBox>
+													<f:SimpleForm layout="ColumnLayout" width="50%">
+														<!--<m:Label text="Address"/>-->
+														<core:Title text=""/>
 														<m:Label text="Project Description:"/>
-														<m:Text text="{i18n>projectDescription}"/>
+														<m:Label text="{i18n>projectDescription}"/>
 													</f:SimpleForm>
 												</m:VBox>
 											</m:HBox>
-											<!--<personal:BlockSocial id="social"/>-->
-											<!--<personal:BlockAdresses id="adresses"/>-->
-											<!--<personal:BlockMailing id="mailing" columnLayout="1"/>-->
 										</blocks>
-									</ObjectPageSubSection>
-									<ObjectPageSubSection>
 										<blocks>
 											<m:HBox>
 												<m:VBox>
 													<f:SimpleForm layout="ColumnLayout" width="100%">
+														<core:Title text="Assets Management"/>
+														<m:Label text="Project Name"/>
+														<m:Text text="SAP UI5 application project for Assets Management Implementation and support"/>
+														<m:Label text="client"/>
+														<m:Text text="Soft link Global Pvt. Ltd., Mumbai"/>
+														<m:Label text="Techonologies Used"/>
+														<m:Text text="SAP UI5, SAP Net weaver, OData, JavaScript, jQuery HTML5 Canvas."/>
+													</f:SimpleForm>
+												</m:VBox>
+												<m:VBox>
+													<f:SimpleForm layout="ColumnLayout" width="50%">
 														<!--<m:Label text="Address"/>-->
-														<core:Title text="Sophos, Canada"/>
-														<m:Label text="New Development and Support for Security Products Management in SAP using UI5 "/>
-														<m:Text text="SAP UI5, JavaScript, Web IDE tool, UI themedesign"/>
+														<core:Title text=""/>
 														<m:Label text="Project Description:"/>
-														<m:Text text="{i18n>projectDescription}"/>
+														<m:Label text="{i18n>projectDescription}"/>
 													</f:SimpleForm>
 												</m:VBox>
 											</m:HBox>
-											<!--<personal:BlockSocial id="social"/>-->
-											<!--<personal:BlockAdresses id="adresses"/>-->
-											<!--<personal:BlockMailing id="mailing" columnLayout="1"/>-->
+										</blocks>
+										<blocks>
+											<m:HBox>
+												<m:VBox>
+													<f:SimpleForm layout="ColumnLayout" width="100%">
+														<core:Title text="PTE Mock "/>
+														<m:Label text="Project Name"/>
+														<m:Text text="P TE Mock application implementation and support"/>
+														<m:Label text="client"/>
+														<m:Text text="The PTE Boss (Australia)"/>
+														<m:Label text="Techonologies Used"/>
+														<m:Text text="JavaScript, JQuery, HTML5, CSS3."/>
+													</f:SimpleForm>
+												</m:VBox>
+												<m:VBox>
+													<f:SimpleForm layout="ColumnLayout" width="50%">
+														<!--<m:Label text="Address"/>-->
+														<core:Title text=""/>
+														<m:Label text="Project Description:"/>
+														<m:Label text="{i18n>projectDescription1}"/>
+													</f:SimpleForm>
+												</m:VBox>
+											</m:HBox>
 										</blocks>
 									</ObjectPageSubSection>
-									<!--<ObjectPageSubSection title="Payment information">-->
-									<!--	<blocks>-->
-									<!--		<personal:PersonalBlockPart1 columnLayout="1"/>-->
-									<!--	</blocks>-->
-									<!--	<moreBlocks>-->
-									<!--		<personal:PersonalBlockPart2 columnLayout="1"/>-->
-									<!--	</moreBlocks>-->
-									<!--</ObjectPageSubSection>-->
 								</subSections>
 							</ObjectPageSection>
 						</sections>

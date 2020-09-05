@@ -3,20 +3,16 @@
 	<Dialog title="{i18n>RequestTite}">
 		<f:SimpleForm>
 			<l:VerticalLayout class="sapUiContentPadding" width="100%">
-				<l:content>
+				<l:content >
 					<VBox>
-						<FlexBox>
-							<Label text="{i18n>RequestEmpiId}"/>
-							<Text id="RequestEmpiId"/>
-						</FlexBox>
-						<FlexBox>
-							<Label text="{i18n>RequestEmpName}"/>
-							<Text id="RequestEmpNameId"/>
-						</FlexBox>
-						<FlexBox>
-							<Label text="{i18n>RequestFile}"/>
-							<Text id="RequestFileId"/>
-						</FlexBox>
+						<Label text="{i18n>RequestEmpiId}"/>
+						<Input id="RequestEmpiId" editable="false"/>
+						<Label text="{i18n>RequestEmpName}"/>
+						<Input id="RequestEmpNameId" editable="false"/>
+						<Text/>
+						<Label text="{i18n>RequestFile}"/>
+						<Input id="RequestFileId" editable="false"/>
+						<Text/>
 						<u:FileUploader id="RequestFileUploader"/>
 						<Button text="{i18n>RequestUplad}" press="onUploadFile" width="100%"/>
 					</VBox>

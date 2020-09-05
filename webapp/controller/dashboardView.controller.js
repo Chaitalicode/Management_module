@@ -23,7 +23,7 @@ sap.ui.define([
 		oNloadOfView: function () {
 			// debugger;
 			var DOB = this.getOwnerComponent().getModel("DOB").getProperty("/Employee");
-
+			debugger;
 			var birthDay = [];
 			var Relieving = [];
 			var anualData = [];
@@ -34,22 +34,43 @@ sap.ui.define([
 				var month = DOB[i].date.slice(3, 5);
 				if (month == "08") {
 					// debugger;
-					DOB[i].event = "birthDay";
+					// DOB[i].event = "birthDay";
+					var obj = {
+						eventId: "Event" + events.length,
+						event: "birthDay",
+						name: DOB[i].empName,
+						date: DOB[i].date,
+						image: DOB[i].image
+					};
 					birthDay.push(DOB[i]);
-					events.push(DOB[i]);
+					events.push(obj);
 				}
 				// debugger;
 				var year = DOB[i].endDate.slice(6);
 				if (year == "2020") {
-					DOB[i].event = "Relieving";
+					// DOB[i].event = "Relieving";
 					Relieving.push(DOB[i]);
-					events.push(DOB[i]);
+					var obj1 = {
+						eventId: "Event" + events.length,
+						event: "Relieving",
+						name: DOB[i].empName,
+						date: DOB[i].endDate,
+						image: DOB[i].image
+					};
+					events.push(obj1);
 				}
 				var anual = DOB[i].startDate.slice(3, 5);
 				if (anual == "08") {
-					DOB[i].event = "anualData";
+					// DOB[i].event = "anualData";
+					var obj2 = {
+						eventId: "Event" + events.length,
+						event: "anniversary",
+						name: DOB[i].empName,
+						date: DOB[i].startDate,
+						image: DOB[i].image
+					};
 					anualData.push(DOB[i]);
-					events.push(DOB[i]);
+					events.push(obj2);
 				}
 
 			}

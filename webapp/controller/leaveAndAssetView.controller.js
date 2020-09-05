@@ -51,9 +51,9 @@ sap.ui.define([
 
 		},
 		onAsseteApproval: function () {
-			debugger;
+			// debugger;
 			var oAssetModelData = this.getOwnerComponent().getModel("DOB").getProperty("/Asset");
-			var empId = this.getView().byId("assetAssetIdId").getText();
+			var empId = this.getView().byId("assetAssetIdId").getValue();
 			var barCodeValue = this.getView().byId("scannedValue").getValue();
 			if (!barCodeValue) {
 
@@ -95,9 +95,9 @@ sap.ui.define([
 					this.getView().addDependent(this.assetActionFragment);
 				}
 				this.assetActionFragment.open();
-				this.getView().byId("assetAssetNameId").setText(newData.AssetName);
-				this.getView().byId("assetAssetIdId").setText(newData.empId);
-				this.getView().byId("assetAsseDateeId").setText(newData.Tdate);
+				this.getView().byId("assetAssetNameId").setValue(newData.AssetName);
+				this.getView().byId("assetAssetIdId").setValue(newData.empId);
+				this.getView().byId("assetAsseDateeId").setValue(newData.Tdate);
 			}
 		},
 		onClickLeaveApprival: function () {
@@ -105,7 +105,7 @@ sap.ui.define([
 			var newData = this.getOwnerComponent().getModel("DOB").getProperty("/Leave");
 			for (var i = 0; i < newData.length; i++) {
 				if (obj[0].empId == newData[i].empId && obj[0].Fdate == newData[i].Fdate && obj[0].Status == newData[i].Status) {
-					newData[i].Status = "approved";
+					newData[i].Status = "Approved";
 				}
 			}
 			this.getOwnerComponent().getModel("DOB").setProperty("/Leave", newData);
@@ -152,7 +152,7 @@ sap.ui.define([
 				onClose: function (sButton) {
 					if (sButton === MessageBox.Action.OK) {
 						// Do something
-						debugger;
+						// debugger;
 						for (var i = 0; i < oModelTimeSheet.length; i++) {
 							if (oModelTimeSheet[i].empId == dltApprovedTimesheetEmployeeObject.empId) {
 								oModelTimeSheet.splice(i, 1);
@@ -350,7 +350,7 @@ sap.ui.define([
 			}
 		},
 		onPressTimeSheetApprovel: function (oEvent) {
-				debugger;
+				// debugger;
 				// var dltApprovedTimesheetEmployeeObject = oEvent.getSource().getBindingContext("DOB").getObject();
 				// var oModelTimeSheet = this.getOwnerComponent().getModel("DOB").getProperty("/TimeSheet");
 				// for (var i = 0; i < oModelTimeSheet.length; i++) {

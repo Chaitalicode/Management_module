@@ -30,16 +30,16 @@
 					<f:content>
 						<ScrollContainer height="200px" width="100%" vertical="true" focusable="true">
 							<SearchField liveChange="onSearchEmployeeCard" class="stickyToolbar" placeholder="Search Employee by Name" width="100%"/>
-							<Table id="totalEmpTable" items="{DOB>/Employee}" width="100%" sticky="HeaderToolbar,InfoToolbar,ColumnHeaders">
+							<Table id="totalEmpTable" items="{DOB>/Employee}" width="100%" sticky="HeaderToolbar,InfoToolbar,ColumnHeaders" alternateRowColors="true">
 								<columns>
 									<Column>
-										<Text text="image"/>
+										<Text text="Image"/>
 									</Column>
 									<Column>
-										<Text text="EmpId"/>
+										<Text text="Employee Id"/>
 									</Column>
 									<Column >
-										<Text text="empName"/>
+										<Text text="Employee Name"/>
 									</Column>
 									<Column>
 										<Text text="Department"/>
@@ -65,16 +65,16 @@
 					</f:header>
 					<f:content>
 						<ScrollContainer height="200px" width="100%" vertical="true" focusable="true">
-							<Table items="{DOB>/Employee}" width="100%">
+							<Table items="{DOB>/Employee}" width="100%" alternateRowColors="true">
 								<columns>
 									<Column>
-										<Text text="image"/>
+										<Text text="Image"/>
 									</Column>
 									<Column>
-										<Text text="EmpId"/>
+										<Text text="Employee Id"/>
 									</Column>
 									<Column >
-										<Text text="empName"/>
+										<Text text="Employee Name"/>
 									</Column>
 									<Column>
 										<Text text="Department"/>
@@ -101,7 +101,7 @@
 					</f:header>
 					<f:content>
 						<ScrollContainer height="200px" width="100%" vertical="true" focusable="true">
-							<Table id="relievingCardId" items="{DOB>/Relieving}" width="100%">
+							<Table id="relievingCardId" items="{DOB>/Relieving}" width="100%" alternateRowColors="true">
 								<columns>
 									<Column>
 										<Text text="Image"/>
@@ -138,7 +138,7 @@
 					</f:header>
 					<f:content>
 						<ScrollContainer height="200px" width="100%" vertical="true" focusable="true">
-							<Table items="{DOB>/anualData}" width="100%">
+							<Table items="{DOB>/anualData}" width="100%" alternateRowColors="true">
 								<columns>
 									<Column>
 										<Text text="Image"/>
@@ -150,7 +150,7 @@
 										<Text text="Name"/>
 									</Column>
 									<Column width="8em">
-										<Text text="startDate"/>
+										<Text text="Join Date"/>
 									</Column>
 								</columns>
 								<items>
@@ -175,10 +175,10 @@
 					</f:header>
 					<f:content>
 						<ScrollContainer height="200px" width="100%" vertical="true" focusable="true">
-							<Table id="birthdayCardId" items="{DOB>/birthDay}" width="100%" noDataText="No Events">
+							<Table id="birthdayCardId" items="{DOB>/birthDay}" width="100%" noDataText="No Events" alternateRowColors="true">
 								<columns>
 									<Column>
-										<Text text="image"/>
+										<Text text="Image"/>
 									</Column>
 									<Column>
 										<Text text="Employee Id"/>
@@ -187,7 +187,7 @@
 										<Text text="Name"/>
 									</Column>
 									<Column width="8em">
-										<Text text="DOB"/>
+										<Text text="Date Of Birth"/>
 									</Column>
 								</columns>
 								<items>
@@ -218,10 +218,10 @@
 								<SearchField liveChange="onSearchEventsCard" class="stickyToolbar" placeholder="Search Events by Name" width="80%"/>
 								<Button text="Add Event" press="onAddEvents"></Button>
 							</Toolbar>
-							<Table id="eventsTable" items="{DOB>/Events}" width="100%">
+							<Table id="eventsTable" items="{DOB>/Events}" width="100%" alternateRowColors="true">
 								<columns>
 									<Column>
-										<Text text="EmpId"/>
+										<Text text="Employee Id"/>
 									</Column>
 									<Column>
 										<Text text="Employee Photo"/>
@@ -230,18 +230,18 @@
 										<Text text="Employee Name"/>
 									</Column>
 									<Column width="7em">
-										<Text text="Enent Name"/>
+										<Text text="Event Name"/>
 									</Column>
-									<Column>
+									<Column width="5em">
 										<Text text="Delete"/>
 									</Column>
 								</columns>
 								<items>
 									<ColumnListItem type="Navigation" press="Birthday">
 										<cells>
-											<Label text="{DOB>EmpId}"/>
+											<Label text="{DOB>eventId}"/>
 											<Avatar src="{DOB>image}" displaySize="S" showBorder="true"/>
-											<Label text="{DOB>empName}"/>
+											<Label text="{DOB>name}"/>
 											<Input value="{DOB>event}" editable="false"/>
 											<Button text="delete" press="onClickdeleteEvent"/>
 										</cells>

@@ -276,13 +276,13 @@
 		"Reason": "Sick",
 		"Fdate": "12-07-2020",
 		"Tdate": "12-07-2020",
-		"Status": "approved"
+		"Status": "Approved"
 	}, {
 		"empId": "103",
 		"Reason": "Sick",
 		"Fdate": "17-06-2020",
 		"Tdate": "18-06-2020",
-		"Status": "approved"
+		"Status": "Approved"
 	}, {
 		"empId": "201",
 		"Reason": "Personal Work",
@@ -300,7 +300,7 @@
 		"Reason": "Marrage",
 		"Fdate": "18-05-2020",
 		"Tdate": "18-06-2020",
-		"Status": "approved"
+		"Status": "Approved"
 	}, {
 		"empId": "201",
 		"Reason": "Marrage",

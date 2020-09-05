@@ -5,6 +5,9 @@
 			<Table items="{DOB>/events}">
 				<columns>
 					<Column >
+						<Text text="Event Id"/>
+					</Column>
+					<Column >
 						<Text text="Employee Image"/>
 					</Column>
 					<Column>
@@ -23,10 +26,11 @@
 				<items>
 					<ColumnListItem type="Inactive">
 						<cells>
+							<Label text="{DOB>eventId}"/>
 							<Avatar src="{DOB>image}" displaySize="S" showBorder="true"/>
 							<Label text="{DOB>event}"/>
-							<Label text="{DOB>empName}"/>
-							<DatePicker value="{DOB>startDate}" editable="false"/>
+							<Label text="{DOB>name}"/>
+							<DatePicker value="{DOB>date}" editable="false"/>
 							<Button text="Add to event" press="onClickEventsAdd"/>
 						</cells>
 					</ColumnListItem>
